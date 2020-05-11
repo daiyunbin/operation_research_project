@@ -29,17 +29,21 @@ req.html.render(script=scrapts, sleep=1, keep_page=True)
 
 #res = req.html.find("div.detail-title-click")
 #print(res)
+""" optionlist = req.html.find("div.match-list select option")
+for option in optionlist:
+    print(option.html) """
+
+#anoption = req.html.find("div.match-list>select>option[value=\"938\"]",first=True)
+""" select = req.html.find("div.detail-list-title div:last-child")
+print(select) """
+
 
 async def main():
-    await req.html.page.screenshot({"path": '1.png', 'clip': {'x': 200, 'y': 200, 'width': 400, 'height': 400}})
+    await req.html.page.screenshot({"path": '../data/temp/screenshot/1.png', 'clip': {'x': 200, 'y': 200, 'width': 400, 'height': 400}})
     await req.html.page.click("div.detail-list-title div:last-child")
-    
-    await req.html.page.screenshot({"path": '2.png', 'clip': {'x': 200, 'y': 200, 'width': 400, 'height': 400}})
+    await req.html.page.screenshot({"path": '../data/temp/screenshot/2.png', 'clip': {'x': 200, 'y': 200, 'width': 400, 'height': 400}})
 
 session.loop.run_until_complete(main())
-
-
-
 
 """ 
 print("视野和资源控制：")
